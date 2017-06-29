@@ -1,0 +1,143 @@
+\documentclass[aps,prl,reprint,groupedaddress]{revtex4-1}
+
+
+\begin{document}
+
+% Use the \preprint command to place your local institutional report
+% number in the upper righthand corner of the title page in preprint mode.
+% Multiple \preprint commands are allowed.
+% Use the 'preprintnumbers' class option to override journal defaults
+% to display numbers if necessary
+\preprint{Demo Paper}
+
+%Title of paper
+\title{Demonstration of Scale Invariance at the Critical Point}
+
+\author{Douglas J. Ashton}
+\email[]{douglas.j.ashton@gmail.com}
+\homepage[]{www.dougashton.net}
+%\thanks{}
+%\altaffiliation{}
+\affiliation{Bath or Mango?}
+
+
+\date{\today}
+
+\begin{abstract}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed enim tincidunt, pharetra mauris gravida, varius tellus. Aenean ante est, posuere eget felis eget, suscipit malesuada nibh. Morbi convallis sem nisi, convallis vehicula lorem cursus eget. Quisque justo ante, viverra ut lobortis ut, vulputate ac est. Quisque consectetur vulputate lectus, et lacinia turpis mattis nec. In pharetra non massa eu aliquam. Cras mattis tortor magna, at feugiat nisi luctus ac. Nulla volutpat pulvinar ex, sit amet pharetra odio vestibulum sit amet. Cras iaculis dictum ultricies. Curabitur nec nibh sit amet dui consequat sollicitudin quis et quam.
+\end{abstract}
+
+% insert suggested PACS numbers in braces on next line
+\pacs{1234}
+% insert suggested keywords - APS authors don't need to do this
+%\keywords{}
+
+%\maketitle must follow title, authors, abstract, \pacs, and \keywords
+\maketitle
+
+% body of paper here - Use proper section commands
+% References should be done using the \cite, \ref, and \label commands
+\section{Introduction}
+% Put \label in argument of \section for cross-referencing
+%\section{\label{}}
+\subsection{a}
+
+Let's put in some inline R. Today is \Sexpr{Sys.Date()}
+
+And a chunk.
+<<Rversion>>=
+R.version$version.string
+@
+
+
+Nam eget felis et urna sagittis hendrerit et quis massa. Proin dictum sollicitudin vulputate. Maecenas nisi ante, blandit quis quam at, malesuada porttitor tellus. Sed augue sapien, aliquam in lectus vel, elementum placerat dui. Maecenas interdum sem a metus gravida, fringilla volutpat ligula congue. Nam vel dui at quam gravida efficitur. Morbi maximus nunc in elit sollicitudin, in hendrerit diam fermentum. Suspendisse vel massa eget tellus placerat pellentesque.
+
+Aliquam sodales libero eu libero commodo, eget interdum ex malesuada. Suspendisse quis varius turpis. Morbi consectetur ligula felis, id vulputate dolor bibendum quis. Proin faucibus leo eget commodo molestie. Mauris sit amet turpis sed diam placerat hendrerit. Maecenas sed lectus eleifend, accumsan tortor quis, gravida orci. Vivamus feugiat, sem id venenatis dictum, felis metus blandit leo, sit amet sagittis enim ligula sed mauris. Aliquam ac auctor nulla, at bibendum turpis. Donec imperdiet consequat iaculis. Fusce pharetra, enim sit amet dictum pharetra, urna mauris porta tellus, a varius diam mi a ante. Aenean pharetra arcu et metus maximus pharetra. Fusce urna tortor, tempus maximus mi at, tempus porttitor magna.
+
+Maecenas suscipit ante magna, eget imperdiet nunc scelerisque ac. Nam bibendum nulla ut dui sagittis, ac auctor arcu rhoncus. Sed in sapien vitae sapien aliquam pretium. Donec ullamcorper est erat, quis ullamcorper tortor bibendum id. Pellentesque ut ex molestie, ultrices libero et, faucibus lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a nisl ac metus pellentesque bibendum sit amet eu purus. In id justo sed justo pretium ullamcorper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis pretium tellus eu leo sodales, et fringilla felis auctor. Vivamus lobortis auctor lacus, non maximus mauris gravida a. Nullam sit amet sem id ante vehicula suscipit non a purus. Aliquam elit lorem, pulvinar non consequat vel, interdum quis nisl. Proin quis massa eros. Praesent aliquet facilisis condimentum.
+
+% If in two-column mode, this environment will change to single-column
+% format so that long equations can be displayed. Use
+% sparingly.
+%\begin{widetext}
+% put long equation here
+%\end{widetext}
+
+% figures should be put into the text as floats.
+% Use the graphics or graphicx packages (distributed with LaTeX2e)
+% and the \includegraphics macro defined in those packages.
+% See the LaTeX Graphics Companion by Michel Goosens, Sebastian Rahtz,
+% and Frank Mittelbach for instance.
+%
+% Here is an example of the general form of a figure:
+% Fill in the caption in the braces of the \caption{} command. Put the label
+% that you will use with \ref{} command in the braces of the \label{} command.
+% Use the figure* environment if the figure should span across the
+% entire page. There is no need to do explicit centering.
+
+% \begin{figure}
+% \includegraphics{}%
+% \caption{\label{}}
+% \end{figure}
+
+% Surround figure environment with turnpage environment for landscape
+% figure
+% \begin{turnpage}
+% \begin{figure}
+% \includegraphics{}%
+% \caption{\label{}}
+% \end{figure}
+% \end{turnpage}
+
+% tables should appear as floats within the text
+%
+% Here is an example of the general form of a table:
+% Fill in the caption in the braces of the \caption{} command. Put the label
+% that you will use with \ref{} command in the braces of the \label{} command.
+% Insert the column specifiers (l, r, c, d, etc.) in the empty braces of the
+% \begin{tabular}{} command.
+% The ruledtabular enviroment adds doubled rules to table and sets a
+% reasonable default table settings.
+% Use the table* environment to get a full-width table in two-column
+% Add \usepackage{longtable} and the longtable (or longtable*}
+% environment for nicely formatted long tables. Or use the the [H]
+% placement option to break a long table (with less control than 
+% in longtable).
+% \begin{table}%[H] add [H] placement to break table across pages
+% \caption{\label{}}
+% \begin{ruledtabular}
+% \begin{tabular}{}
+% Lines of table here ending with \\
+% \end{tabular}
+% \end{ruledtabular}
+% \end{table}
+
+% Surround table environment with turnpage environment for landscape
+% table
+% \begin{turnpage}
+% \begin{table}
+% \caption{\label{}}
+% \begin{ruledtabular}
+% \begin{tabular}{}
+% \end{tabular}
+% \end{ruledtabular}
+% \end{table}
+% \end{turnpage}
+
+% Specify following sections are appendices. Use \appendix* if there
+% only one appendix.
+%\appendix
+%\section{}
+
+% If you have acknowledgments, this puts in the proper section head.
+%\begin{acknowledgments}
+% put your acknowledgments here.
+%\end{acknowledgments}
+
+% Create the reference section using BibTeX:
+%\bibliography{basename of .bib file}
+
+\end{document}
+%
+% ****** End of file apstemplate.tex ******
+
