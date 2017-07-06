@@ -18,13 +18,13 @@
 \homepage[]{www.dougashton.net}
 %\thanks{}
 %\altaffiliation{}
-\affiliation{Bath or Mango?}
+\affiliation{Mango Solutions}
 
 
 \date{\today}
 
 \begin{abstract}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed enim tincidunt, pharetra mauris gravida, varius tellus. Aenean ante est, posuere eget felis eget, suscipit malesuada nibh. Morbi convallis sem nisi, convallis vehicula lorem cursus eget. Quisque justo ante, viverra ut lobortis ut, vulputate ac est. Quisque consectetur vulputate lectus, et lacinia turpis mattis nec. In pharetra non massa eu aliquam. Cras mattis tortor magna, at feugiat nisi luctus ac. Nulla volutpat pulvinar ex, sit amet pharetra odio vestibulum sit amet. Cras iaculis dictum ultricies. Curabitur nec nibh sit amet dui consequat sollicitudin quis et quam.
+Critical point phenomena, such as scale invariance and universality, can be difficult concepts to understand, partly because it is difficult to visualise. The two dimensional Ising model is a very useful model to illustrate some of these behaviours due to its simplicity. This paper presents large scale, real space simulations of $ \tilde 10^10 $ lattice sites using a slightly modified Wolff algorithm. The configurations generated give a tangible demonstration of scale invariance.
 \end{abstract}
 
 % insert suggested PACS numbers in braces on next line
@@ -40,8 +40,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed enim tincid
 \section{Introduction}
 % Put \label in argument of \section for cross-referencing
 %\section{\label{}}
-\subsection{a}
+%\subsection{Introduction}
 
+
+The two dimensional Ising model is the classic model to demonstrate critical phenomena. While it has been solved analytically it is also useful for testing theories such as the renormalisation group and demonstrating behaviour such as scale invariance.
+
+
+\section{N}
 Let's put in some inline R. Today is \Sexpr{Sys.Date()}
 
 And a chunk.
