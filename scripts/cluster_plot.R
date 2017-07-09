@@ -2,6 +2,7 @@ library(readr)
 library(ggplot2)
 library(dplyr)
 
+# This is pre-processed in cluster_hist.R
 cluster_hist <- read_csv("data/clusters_hist_100.csv", col_types = "ddid")
 
 g <- cluster_hist %>%
