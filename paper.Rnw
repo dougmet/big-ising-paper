@@ -37,27 +37,65 @@ Critical point phenomena, such as scale invariance, and universality, can be dif
 
 % body of paper here - Use proper section commands
 % References should be done using the \cite, \ref, and \label commands
-\section{Introduction}
+\section{Introduction}{\label{sec-intro}}
 % Put \label in argument of \section for cross-referencing
 %\section{\label{}}
 %\subsection{Introduction}
 
+Most phase transitions are due to a competition between energy and entropy. On the one hand attractive forces want to pull particles together, and on the other entropy drives the particles to explore more configurations. This balance between energy and entropy is bourne out in the free energy, which may look like the following.
 
-The two dimensional Ising model is the classic model to demonstrate critical phenomena. While it has been solved analytically CITE it is also useful for testing theories such as the renormalisation group CITE and demonstrating behaviour such as scale invariance CITE.
+\begin{equation}
+F = E - S k_B T
+\end{equation}
+where $E$ is the internal energy, $S$ the entropy, and $k_B T$ the temperature. High temperature favours entropy, low temperature favours energy.
+
+A first order phase transition occurs when there is a discontinuity in the free energy with respsect to the order parameter. In a liquid-gas transition the order parameter is density. At the point of the discontinuity two very different phases, a high density liquid and a low density gas, have the same free energy and they can co-exist on either side of a phase boundary.
+
+If we heat things up the boundary between the two begins to weaken and fluctuations between the phases grow stronger and stronger. At the critical point the fluctuations diverge. This is also known as a continuous phase, or second order, transition because there is no jump in free energy between the phases.
+
+%% Maybe drop everything above and start below?
+
+The behaviour of a material around its critical point is one of the strangest, and most beautiful results in statistical physics. The divergence in fluctuations creates a scale invariance with no length scale taking priority. This means that the details of what the liquid, or magnet, or other material, are made from becomes less important. The physics is instead driven by much simpler things such as dimensionality and symmtery. Thanks to this universality the critical point is one area where a simple model can produce exact results.
+
+The theory of critical phenomena becomes quickly quite abstract making it difficult for students to gain a good intuition for the basic physical effect. In this paper we aim to demonstrate important consequences of scale invariance using a massive scale, real space simulation of the Ising model at its critical point. For this we use a modified version of the Wolff algorithm, designed to minimise the use of memory.
+
+The paper is organised as follows: In the next section we present the model and simulation method and in the final section we show some key results.
+
+\begin{figure}
+\includegraphics[width=\columnwidth]{data/swolff0000.png}
+\caption{\label{fig-config} what}
+\end{figure}
+
+\section{Method\label{sec-method}}
+
+\subsection{Ising Model}
+
+The simplest model for system with attraction and randomness is the Ising model. The spin $\frac{1}{2}$ Ising model has spins arranged on a lattice able to point up ($\sigma = 1$), or down ($\sigma = -1$. In Fig. \ref{fig-config} these are shown with black or white pixels. The energy prefers spins to line up:
+
+\begin{equation}
+E = -J \sum_{i, j} \sigma_i \sigma_j
+\end{equation}
+where the sum is over all neighbouring pairs.
+
+The two dimensional Ising model is the classic model to demonstrate critical phenomena. While it has been solved analytically in zero field CITE it is also useful for testing theories such as the renormalisation group CITE and demonstrating behaviour such as scale invariance CITE.
+
+\subsection{Simulation Method}
+
+Blah blah Wolff. 
 
 
-\section{N}
+\section{Results\label{sec-results}}
+
 Let's put in some inline R. Today is \Sexpr{Sys.Date()}
 
 
-And a chunk.
-
 \begin{figure}
-<<density, echo=FALSE, fig.width=3.5, fig.height=3.5>>=
+<<density, echo=FALSE, message=FALSE, fig.width=3.5, fig.height=3.5>>=
 library(ggplot2)
 library(yaml)
+library(readr)
 
-em_raw <- read.csv("data/em.csv", header = FALSE, col.names = c("M", "E"))
+em_raw <- read_csv("data/em.csv", col_names = c("M", "E"))
 
 # Cut off four correlation times
 em <- em_raw[-(1:200), ]
@@ -72,26 +110,33 @@ g <- ggplot(em) +
 
 g
 @
-\caption{\label{fig1} what}
+\caption{\label{fig-density} what}
 \end{figure}
 
-
 \begin{figure}
-\includegraphics[width=\columnwidth]{data/swolff0000.png}
-\caption{\label{fig-config} what}
-\end{figure}
 
+<<clusters, echo=FALSE, message=FALSE, fig.width=3.5, fig.height=3.5>>=library(readr)
+library(readr)
+library(ggplot2)
+library(dplyr)
 
-\begin{figure}
-\includegraphics[width=\columnwidth]{fig-clusters}
+cluster_hist <- read_csv("data/clusters_hist_100.csv", col_types = "ddid")
+
+g <- cluster_hist %>%
+  filter(counts > 0) %>%
+  ggplot() +
+  geom_point(aes(x = exp(mids), y = counts)) +
+  scale_y_log10() +
+  scale_x_log10() +
+  labs(x = "Cluster Size, N", y = "Count") +
+  theme_bw()
+
+g
+
+@
 \caption{\label{fig-clusters} what}
 \end{figure}
 
-
-\begin{figure}
-\includegraphics[width=\columnwidth]{fig-density}
-\caption{\label{fig-density} what}
-\end{figure}
 
 % If in two-column mode, this environment will change to single-column
 % format so that long equations can be displayed. Use

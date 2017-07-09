@@ -10,6 +10,7 @@ g <- cluster_hist %>%
   geom_point(aes(x = exp(mids), y = counts)) +
   scale_y_log10() +
   scale_x_log10() +
-  labs(x = "Cluster Size, N", y = "Count") 
+  labs(x = "Cluster Size, N", y = "Count") +
+  theme_bw()
 
 ggsave("fig-clusters.pdf", g)
