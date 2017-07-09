@@ -24,7 +24,7 @@
 \date{\today}
 
 \begin{abstract}
-Critical point phenomena, such as scale invariance and universality, can be difficult concepts to understand, partly because it is difficult to visualise. The two dimensional Ising model is a very useful model to illustrate some of these behaviours due to its simplicity. This paper presents large scale, real space simulations of $ \tilde 10^10 $ lattice sites using a slightly modified Wolff algorithm. The configurations generated give a tangible demonstration of scale invariance.
+Critical point phenomena, such as scale invariance, and universality, can be difficult concepts to learn. Partly because it is difficult to visualise. The two dimensional Ising model is a very useful model to illustrate some of these behaviours due to its simplicity. This paper presents large scale, real space simulations of $ \tilde 10^10 $ lattice sites using a slightly modified Wolff algorithm. The configurations generated give a tangible demonstration of scale invariance.
 \end{abstract}
 
 % insert suggested PACS numbers in braces on next line
@@ -43,23 +43,55 @@ Critical point phenomena, such as scale invariance and universality, can be diff
 %\subsection{Introduction}
 
 
-The two dimensional Ising model is the classic model to demonstrate critical phenomena. While it has been solved analytically it is also useful for testing theories such as the renormalisation group and demonstrating behaviour such as scale invariance.
+The two dimensional Ising model is the classic model to demonstrate critical phenomena. While it has been solved analytically CITE it is also useful for testing theories such as the renormalisation group CITE and demonstrating behaviour such as scale invariance CITE.
 
 
 \section{N}
 Let's put in some inline R. Today is \Sexpr{Sys.Date()}
 
+
 And a chunk.
-<<Rversion>>=
-R.version$version.string
+
+\begin{figure}
+<<density, echo=FALSE, fig.width=3.5, fig.height=3.5>>=
+library(ggplot2)
+library(yaml)
+
+em_raw <- read.csv("data/em.csv", header = FALSE, col.names = c("M", "E"))
+
+# Cut off four correlation times
+em <- em_raw[-(1:200), ]
+
+metadata <- yaml.load_file("data/metadata.yaml")
+N <- as.integer(metadata$N)
+
+g <- ggplot(em) +
+  geom_freqpoly(aes(x = M / N, y = ..density..), bins = 100) + 
+  labs(x = "Magnetisation per spin, m", y = "Density, P(m)") +
+  theme_bw()
+
+g
 @
+\caption{\label{fig1} what}
+\end{figure}
 
 
-Nam eget felis et urna sagittis hendrerit et quis massa. Proin dictum sollicitudin vulputate. Maecenas nisi ante, blandit quis quam at, malesuada porttitor tellus. Sed augue sapien, aliquam in lectus vel, elementum placerat dui. Maecenas interdum sem a metus gravida, fringilla volutpat ligula congue. Nam vel dui at quam gravida efficitur. Morbi maximus nunc in elit sollicitudin, in hendrerit diam fermentum. Suspendisse vel massa eget tellus placerat pellentesque.
+\begin{figure}
+\includegraphics[width=\columnwidth]{data/swolff0000.png}
+\caption{\label{fig-config} what}
+\end{figure}
 
-Aliquam sodales libero eu libero commodo, eget interdum ex malesuada. Suspendisse quis varius turpis. Morbi consectetur ligula felis, id vulputate dolor bibendum quis. Proin faucibus leo eget commodo molestie. Mauris sit amet turpis sed diam placerat hendrerit. Maecenas sed lectus eleifend, accumsan tortor quis, gravida orci. Vivamus feugiat, sem id venenatis dictum, felis metus blandit leo, sit amet sagittis enim ligula sed mauris. Aliquam ac auctor nulla, at bibendum turpis. Donec imperdiet consequat iaculis. Fusce pharetra, enim sit amet dictum pharetra, urna mauris porta tellus, a varius diam mi a ante. Aenean pharetra arcu et metus maximus pharetra. Fusce urna tortor, tempus maximus mi at, tempus porttitor magna.
 
-Maecenas suscipit ante magna, eget imperdiet nunc scelerisque ac. Nam bibendum nulla ut dui sagittis, ac auctor arcu rhoncus. Sed in sapien vitae sapien aliquam pretium. Donec ullamcorper est erat, quis ullamcorper tortor bibendum id. Pellentesque ut ex molestie, ultrices libero et, faucibus lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a nisl ac metus pellentesque bibendum sit amet eu purus. In id justo sed justo pretium ullamcorper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis pretium tellus eu leo sodales, et fringilla felis auctor. Vivamus lobortis auctor lacus, non maximus mauris gravida a. Nullam sit amet sem id ante vehicula suscipit non a purus. Aliquam elit lorem, pulvinar non consequat vel, interdum quis nisl. Proin quis massa eros. Praesent aliquet facilisis condimentum.
+\begin{figure}
+\includegraphics[width=\columnwidth]{fig-clusters}
+\caption{\label{fig-clusters} what}
+\end{figure}
+
+
+\begin{figure}
+\includegraphics[width=\columnwidth]{fig-density}
+\caption{\label{fig-density} what}
+\end{figure}
 
 % If in two-column mode, this environment will change to single-column
 % format so that long equations can be displayed. Use
