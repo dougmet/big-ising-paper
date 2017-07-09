@@ -32,7 +32,6 @@ data/clusters_filter*.csv
 # Remove these when the paper is done
 *.pdf
 paper.pdf 
-paper.tex
 paperNotes.bib
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):

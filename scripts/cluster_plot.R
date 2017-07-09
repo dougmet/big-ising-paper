@@ -13,4 +13,4 @@ g <- cluster_hist %>%
   labs(x = "Cluster Size, N", y = "Count") +
   theme_bw()
 
-ggsave("fig-clusters.pdf", g)
+ggsave("fig-clusters.pdf", g, width = 3.5, height = 3.5, units = "in")

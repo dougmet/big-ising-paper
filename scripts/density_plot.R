@@ -14,4 +14,4 @@ g <- ggplot(em) +
   labs(x = "Magnetisation per spin, m", y = "Density, P(m)") +
   theme_bw()
 
-ggsave("fig-density.pdf", g)
+ggsave("fig-density.pdf", g, width = 3.5, height = 3.5, units = "in")

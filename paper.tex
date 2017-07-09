@@ -86,54 +86,15 @@ Blah blah Wolff.
 
 \section{Results\label{sec-results}}
 
-Let's put in some inline R. Today is \Sexpr{Sys.Date()}
-
+Results
 
 \begin{figure}
-<<density, echo=FALSE, message=FALSE, fig.width=3.5, fig.height=3.5>>=
-library(ggplot2)
-library(yaml)
-library(readr)
-
-em_raw <- read_csv("data/em.csv", col_names = c("M", "E"))
-
-# Cut off four correlation times
-em <- em_raw[-(1:200), ]
-
-metadata <- yaml.load_file("data/metadata.yaml")
-N <- as.integer(metadata$N)
-
-g <- ggplot(em) +
-  geom_freqpoly(aes(x = M / N, y = ..density..), bins = 100) + 
-  labs(x = "Magnetisation per spin, m", y = "Density, P(m)") +
-  theme_bw()
-
-g
-@
+\includegraphics[width=\columnwidth]{fig-density}
 \caption{\label{fig-density} what}
 \end{figure}
 
 \begin{figure}
-
-<<clusters, echo=FALSE, message=FALSE, fig.width=3.5, fig.height=3.5>>=library(readr)
-library(readr)
-library(ggplot2)
-library(dplyr)
-
-cluster_hist <- read_csv("data/clusters_hist_100.csv", col_types = "ddid")
-
-g <- cluster_hist %>%
-  filter(counts > 0) %>%
-  ggplot() +
-  geom_point(aes(x = exp(mids), y = counts)) +
-  scale_y_log10() +
-  scale_x_log10() +
-  labs(x = "Cluster Size, N", y = "Count") +
-  theme_bw()
-
-g
-
-@
+\includegraphics[width=\columnwidth]{fig-clusters}
 \caption{\label{fig-clusters} what}
 \end{figure}
 
