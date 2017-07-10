@@ -2,7 +2,7 @@
 COMMIT := $(shell git rev-parse HEAD)
 BRANCH := $(shell git rev-parse --symbolic-full-name --abbrev-ref HEAD)
 TEX=pdflatex
-FIGS=fig-*.pdf
+FIGS=fig-density.pdf fig-clusters.pdf
 
 all: paper.pdf
 
