@@ -1,6 +1,6 @@
 library(readr)
 
-clusters <- read_csv("data/clusters.csv", 
+clusters <- read_csv("data/clusters_filter10.csv", 
                      col_names = FALSE, 
                      col_types = "d")[[1]]
 

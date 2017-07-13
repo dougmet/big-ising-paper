@@ -9,8 +9,12 @@ g <- cluster_hist %>%
   filter(counts > 0) %>%
   ggplot() +
   geom_point(aes(x = exp(mids), y = counts)) +
-  scale_y_log10() +
-  scale_x_log10() +
+  scale_x_log10(
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  scale_y_log10(
+    labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
   labs(x = "Cluster Size, N", y = "Count") +
   theme_bw()
 
