@@ -16,7 +16,7 @@ data/clusters_hist_100.csv: data/clusters_filter10.csv scripts/clusters_hist.R
 	@echo "Building clusters histogram"
 	Rscript scripts/cluster_hist.R
 
-fig-density.pdf: scripts/density_plot.R data/em.csv
+fig-density.pdf: scripts/density_plot.R data/em.csv data/metadata.yaml
 	Rscript scripts/density_plot.R
 
 fig-clusters.pdf: scripts/cluster_plot.R data/clusters_hist_100.csv
